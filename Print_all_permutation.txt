@@ -1,0 +1,47 @@
+void fun(int idx,vector<int>v,int n,vector<vector<int>>&vec)
+{
+    if(idx>n)
+        return ;
+    else if(idx==n)
+    {
+        vec.push_back(v);
+
+    }
+    else
+    {
+        for(int i=idx; i<=n; i++)
+        {
+            swap(v[idx],v[i]);
+            fun(idx+1,v,n,vec);
+        }
+
+
+    }
+
+
+
+}
+void solve()
+{
+    vector<int>v={1,2,3};
+    int n=2;
+    vector<vector<int>>vec;
+    fun(0,v,n,vec);
+    for(auto i:vec)
+    {
+        for(int j:i)
+        {
+            cout<<j<<" ";
+
+        }
+        cout<<endl;
+    }
+
+
+
+}
+int main()
+{
+solve();
+return 0;
+}
